@@ -1,5 +1,20 @@
+# Core app
 streamlit
 pandas
-seaborn
+
+# Data science & visualization
 matplotlib
+seaborn
+
+# Backend logic (API key loading & environment handling)
 python-dotenv
+
+# For LLM API usage — add the one you're using:
+# If using OpenAI:
+openai
+
+# If using Groq:
+groq
+
+# Optional if you use Plotly charts from the model
+plotly
