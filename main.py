@@ -1,5 +1,19 @@
 import streamlit as st
 import pandas as pd
+import os
+
+# === 🛡️ Secure API Key Loading ===
+try:
+    API_KEY = st.secrets["GROQ_API_KEY"]
+except KeyError:
+    from dotenv import load_dotenv
+    load_dotenv()
+    API_KEY = os.getenv("GROQ_API_KEY")
+
+# Inject into environment so backend can access it
+os.environ["GROQ_API_KEY"] = API_KEY
+
+# === Backend imports (after API key is loaded) ===
 from backend.groq_api import ask_groq
 from backend.codeexecutor import execute_code
 from backend.sqlquery import run_sql_query
