@@ -5,6 +5,11 @@ import os
 
 CACHE_DIR = "cache/"
 
+# ✅ Make sure the cache directory exists
+if not os.path.exists(CACHE_DIR):
+    os.makedirs(CACHE_DIR)
+
+
 def get_cache_key(query):
     return hashlib.md5(query.encode()).hexdigest()
 
